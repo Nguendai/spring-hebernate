@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.javatpoint.beans.Emp;
 import com.javatpoint.dao.EmpDao;
@@ -74,4 +75,10 @@ public class EmpController {
 		dao.delete(id);
 		return "redirect:/viewemp";
 	}
+//	/*It exrort list excel use poi */
+//	@RequestMapping(value = "/export", method = RequestMethod.GET)
+//	public ModelAndView getExcel() {
+//		List<Emp> list = dao.getEmployees();
+//		return new ModelAndView("EmpExcel", "empList", list);
+//	}
 }
