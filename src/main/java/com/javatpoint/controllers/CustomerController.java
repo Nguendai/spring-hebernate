@@ -8,16 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javatpoint.beans.Customer;
-import com.javatpoint.service.CustomerService2;
+import com.javatpoint.service.container.ServiceContainer;
 
 @Controller
 public class CustomerController {
 
-	@Autowired
-	private CustomerService2 customerService2;
 	@RequestMapping(value= {"/customer-list"})
 	public String listCustomer(Model model) throws Exception {
-		List<Customer> listCustomer = customerService2.findAll();
+		List<Customer> listCustomer = ServiceContainer.customerService.findAll();
 		
 		model.addAttribute("listCustomer",listCustomer);
 		return "customer-list";
